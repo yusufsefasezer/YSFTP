@@ -1,0 +1,38 @@
+﻿<Window x:Class="YSFTP.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YSFTP"
+        xmlns:i18n="clr-namespace:YSFTP.Properties"
+        mc:Ignorable="d"
+        Title="YSFTP About" Height="300" Width="450" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" WindowStyle="ToolWindow">
+
+    <!--#region Style -->
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="0, 10" />
+        </Style>
+    </Window.Resources>
+    <!--#endregion-->
+
+    <!--#region Structure -->
+    <Grid Margin="10, 5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" x:Name="textBlockProductName" Text="{x:Static i18n:Resources.textBlockProductName}" />
+        <TextBlock Grid.Row="1" x:Name="textBlockVersion" Text="{x:Static i18n:Resources.textBlockVersion}" />
+        <TextBlock Grid.Row="2" x:Name="textBlockCopyright" Text="{x:Static i18n:Resources.textBlockCopyright}" />
+        <TextBlock Grid.Row="3" x:Name="textBlockCompanyName" Text="{x:Static i18n:Resources.textBlockCompanyName}" />
+        <TextBlock Grid.Row="4" x:Name="textBlockDescription" TextWrapping="Wrap" Text="{x:Static i18n:Resources.textBlockDescription}" />
+        <Button Grid.Row="5" x:Name="buttonOk" Content="{x:Static i18n:Resources.buttonOk}" HorizontalAlignment="Right" Padding="7, 3" IsCancel="True" IsDefault="True" />
+    </Grid>
+    <!--#endregion-->
+
+</Window>
