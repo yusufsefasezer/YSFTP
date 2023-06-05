@@ -55,13 +55,20 @@ namespace YSFTP
         {
             InitializeComponent();
             InitializeEvent();
-            //DummyData();
         }
         #endregion
 
         #region Dummy Data
         private void DummyData()
         {
+            if (MainWindow.ServerList.Count > 0) return;
+
+            MainWindow.ServerList.Add(new YSFTPUser
+            {
+                ServerName = "127.0.0.1",
+                Host = "127.0.0.1",
+                Port = 21
+            });
             MainWindow.ServerList.Add(new YSFTPUser
             {
                 ServerName = "yusufsezer.com.tr",
@@ -229,6 +236,9 @@ namespace YSFTP
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             LoadServerData(FILENAME);
+#if DEBUG
+            DummyData();
+#endif
         }
         #endregion
 
