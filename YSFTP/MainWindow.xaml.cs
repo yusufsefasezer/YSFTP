@@ -104,11 +104,13 @@ namespace YSFTP
             buttonServer.Click += ButtonServer_Click;
             buttonConnect.Click += ButtonConnect_Click;
             buttonRefresh.Click += ButtonRefresh_Click;
+            buttonDelete.Click += ButtonDelete_Click;
             listViewDirectoriesFiles.KeyDown += ListViewDirectoriesFiles_KeyDown;
             listViewDirectoriesFiles.MouseDoubleClick += ListViewDirectoriesFiles_MouseDoubleClick;
             textBoxPort.TextChanged += TextBoxPort_TextChanged;
             this.Loaded += MainWindow_Loaded;
         }
+
         #endregion
 
         #region ListViewDirectoriesFiles_MouseDoubleClick
@@ -135,6 +137,19 @@ namespace YSFTP
             if (selectedItem != null && selectedItem.FileType == ItemType.Directory)
             {
                 ListDirectory(selectedItem.FullPath);
+            }
+        }
+        #endregion
+
+        #region ButtonDelete_Click
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = listViewDirectoriesFiles.SelectedItem as YSFTPItem;
+            if (selectedItem != null)
+            {
+                ftp.Delete(selectedItem.FullPath);
+                LOG = ftp.Response.StatusDescription;
+                buttonRefresh.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             }
         }
         #endregion

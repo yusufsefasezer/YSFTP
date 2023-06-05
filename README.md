@@ -11,7 +11,7 @@ FTP application developed with C# and WPF.
 - [ ] Download
 - [ ] Upload
 - [ ] Rename
-- [ ] Delete
+- [X] Delete
 - [ ] Drag&Drop
 - [ ] Dynamic theme system
 - [ ] Improve to performance 

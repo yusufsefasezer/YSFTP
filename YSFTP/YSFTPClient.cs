@@ -16,7 +16,7 @@ namespace YSFTP
         public string UserName { get; set; } = "anonymous";
         public string UserPass { get; set; } = string.Empty;
         public string Path { get; set; } = "/";
-        public FtpStatusCode YSFTPStatus { get; set; } = FtpStatusCode.Undefined;
+        public FtpWebResponse Response { get; set; }
         #endregion
 
         #region ctor
@@ -100,6 +100,15 @@ namespace YSFTP
             request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
             string result = GetResponseAsString(request);
             return new YSFTPDirectory(result.Split('\n'), Path);
+        }
+        #endregion
+
+        #region Delete
+        public void Delete(string path)
+        {
+            var request = CreateRequest(path);
+            request.Method = WebRequestMethods.Ftp.DeleteFile;
+            Response = (FtpWebResponse)request.GetResponse();
         }
         #endregion
 
