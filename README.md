@@ -1,5 +1,5 @@
 # YSFTP
-A simple FTP application developed with C# and WPF.
+FTP application developed with C# and WPF.
 
 <div align="center">
 # NOTE: The project has not completed yet.
@@ -20,4 +20,4 @@ A simple FTP application developed with C# and WPF.
 # License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details
 
-Created by [Yusuf SEZER](http://www.yusufsezer.com)
+Created by [Yusuf Sezer](https://www.yusufsezer.com)
