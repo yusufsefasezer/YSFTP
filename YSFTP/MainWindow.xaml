@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:YSFTP"
         xmlns:i18n="clr-namespace:YSFTP.Properties"
         mc:Ignorable="d"
-        Title="YSFTP" Height="600" Width="700" Icon="YSFTP.ico">
+        Title="YSFTP" Height="800" Width="1000" Icon="YSFTP.ico">
 
     <!--#region Structure -->
     <Grid>
