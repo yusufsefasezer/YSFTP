@@ -14,7 +14,14 @@ FTP application developed with C# and WPF.
 - [X] Delete
 - [ ] Drag&Drop
 - [ ] Dynamic theme system
-- [ ] Improve to performance 
+- [ ] Improve to performance
+
+## Screenshot
+![screenshot1](screenshot/screenshot1.png)
+![screenshot2](screenshot/screenshot2.png)
+![screenshot3](screenshot/screenshot3.png)
+![screenshot4](screenshot/screenshot4.png)
+![screenshot5](screenshot/screenshot5.png)
 
 
 # License
