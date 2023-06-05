@@ -116,7 +116,7 @@
             </Grid.ColumnDefinitions>
 
             <!--#region Directories and files -->
-            <ListView Grid.Row="0" Grid.Column="0" x:Name="listViewDirectoriesFiles" BorderThickness="0">
+            <ListView Grid.Row="0" Grid.Column="0" x:Name="listViewDirectoriesFiles" BorderThickness="0" IsEnabled="False" GridViewColumnHeader.Click="GridViewHeader_Click">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn x:Name="gridViewColumnFilename" Header="{x:Static i18n:Resources.gridViewColumnFilename}" DisplayMemberBinding="{Binding Filename}" />

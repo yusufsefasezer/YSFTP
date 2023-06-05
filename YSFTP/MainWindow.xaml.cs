@@ -160,6 +160,7 @@ namespace YSFTP
                 imageConnect.Source = (BitmapImage)Application.Current.Resources["bitmapImageConnect"];
                 ListDirectory("/");
                 Status = "Connected";
+                listViewDirectoriesFiles.IsEnabled = true;
             }
             catch (Exception ex)
             {
@@ -230,6 +231,33 @@ namespace YSFTP
         {
             listViewDirectoriesFiles.ItemsSource = ftp.ListDirectory(path);
         }
+        #endregion
+
+        #region Sort GridView
+        private GridViewColumnHeader lastHeaderClicked = null;
+        private ListSortDirection lastDirection = ListSortDirection.Ascending;
+
+        private void GridViewHeader_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(e.OriginalSource is GridViewColumnHeader columnHeader)) return;
+            var sortDirection = ListSortDirection.Ascending;
+            if (columnHeader == lastHeaderClicked && lastDirection == ListSortDirection.Ascending)
+                sortDirection = ListSortDirection.Descending;
+            sort(columnHeader, sortDirection);
+            lastHeaderClicked = columnHeader; lastDirection = sortDirection;
+        }
+
+        private void sort(GridViewColumnHeader columnHeader, ListSortDirection sortDirection)
+        {
+            var path = (columnHeader.Column.DisplayMemberBinding as Binding)?.Path.Path;
+            path = path ?? columnHeader.Column.Header as string;
+            var dataView = CollectionViewSource.GetDefaultView(listViewDirectoriesFiles.ItemsSource);
+            dataView.SortDescriptions.Clear();
+            var sortDescription = new SortDescription(path, sortDirection);
+            dataView.SortDescriptions.Add(sortDescription);
+            dataView.Refresh();
+        }
+
         #endregion
 
         #region MainWindow_Loaded
@@ -357,5 +385,6 @@ namespace YSFTP
             base.OnClosing(e);
         }
         #endregion
+
     }
 }
